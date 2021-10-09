@@ -7,6 +7,154 @@
   pointer-events: none;
 }
 
+.order-card {
+  background: white;
+  padding: 16px;
+  max-width: 250px;
+  width: 250px;
+  font-family: Avenir;
+  font-style: normal;
+}
+
+.order-card .heading {
+  color: #292535;
+  font-weight: 500;
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.order-card .info {
+  color: rgba(119, 117, 126, 0.5);
+  font-size: 16px;
+}
+
+.order-card .action-card {
+  box-shadow: 0px 4px 10px rgba(222, 222, 222, 0.5);
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.action-card .button-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.button-group > button:first-child {
+  margin-right: 8px;
+}
+
+.button-group button {
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 14px;
+  background: white;
+  width: 88px;
+  height: 32px;
+}
+
+.button-group .buy {
+  border: 1px solid #49d273;
+  color: #49d273;
+}
+
+.button-group .sell {
+  border: 1px solid #ec7987;
+  color: white;
+  background: #ec7987;
+}
+
+.action-card .currency-date {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.currency-date > div:first-child {
+  margin-right: 4px;
+}
+
+.currency-date .currency-type {
+  color: #292535;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.currency-date .date {
+  color: #77757e;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.action-card .action-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.action-price .icon {
+  color: #292535;
+  font-size: 16px;
+}
+
+.action-price .price {
+  color: #292535;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.action-price > i:first-child {
+  margin-right: 6px;
+}
+
+.action-card .details .text {
+  font-weight: 300;
+  font-size: 12px;
+  text-align: left;
+  display: flex;
+  align-items: start;
+}
+
+.action-card .details .text .info {
+  color: rgba(119, 117, 126, 0.5);
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.action-card .details .text a {
+  color: #292535;
+  font-weight: 500;
+}
+
+.action-card .nav-link {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #292535;
+}
+
+.action-card .nav-tabs .nav-link.active {
+  color: #495057;
+  background-color: #fff;
+  border-radius: 0px;
+}
+
+.action-card .nav-tabs .market .nav-link.active {
+  border-color: #fff #dee2e6 #fff #fff;
+}
+
+.action-card .nav-tabs .limit .nav-link.active {
+  border-color: #fff #dee2e6 #fff #fff;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -21,7 +169,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
