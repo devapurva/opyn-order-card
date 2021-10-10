@@ -22,30 +22,36 @@ const OrderCard = () => {
             <i className="ri-information-line info"></i>
             <span>
               To create a spread, select another option.{" "}
-              <a href="/#">Learn More.</a>
+              <a
+                href="https://opyn.gitbook.io/opyn/#what-is-a-spread"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Learn More.
+              </a>
             </span>
           </div>
         </div>
       </div>
-      <div className="action-card">
-        <ul className="nav nav-tabs" id="myTab" role="tablist">
-          <li className="nav-item" role="presentation">
+      <div className="market-limit-card">
+        <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
+          <li className="nav-item market" role="presentation">
             <button
-              className="market nav-link  active"
-              id="home-tab"
+              className="nav-link  active"
+              id="market-tab"
               data-bs-toggle="tab"
-              data-bs-target="#home"
+              data-bs-target="#market"
               type="button"
               role="tab"
-              aria-controls="home"
+              aria-controls="market"
               aria-selected="true"
             >
               MARKET
             </button>
           </li>
-          <li className="nav-item" role="presentation">
+          <li className="nav-item limit" role="presentation">
             <button
-              className="limit nav-link"
+              className="nav-link"
               id="profile-tab"
               data-bs-toggle="tab"
               data-bs-target="#profile"
@@ -61,11 +67,82 @@ const OrderCard = () => {
         <div className="tab-content" id="myTabContent">
           <div
             className="tab-pane fade show active"
-            id="home"
+            id="market"
             role="tabpanel"
-            aria-labelledby="home-tab"
+            aria-labelledby="market-tab"
           >
-            MARKET
+            <div className="metrics">
+              <div className="position">
+                <div className="heading">
+                  POSITION SIZE <i className="ri-information-line info"></i>
+                </div>
+                <div className="otoken">
+                  <div className="balance">
+                    <span className="text">oToken Balance:</span>
+                    <span className="number">21.042</span>
+                  </div>
+                  <div className="token-input">
+                    <input className="form-control" value="100.00"></input>
+                    <span className="max-button">
+                      <span className="button">max</span> <span>oTokens</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="collateral">
+                <div className="heading">
+                  COLLATERALIZATION RATIO{" "}
+                  <i className="ri-information-line info"></i>
+                </div>
+                <div className="input-group mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder=""
+                    aria-label=""
+                    aria-describedby="basic-addon2"
+                    value="25"
+                  />
+                  <span className="input-group-text" id="basic-addon2">
+                    %
+                  </span>
+                </div>
+              </div>
+              <div className="spot">
+                <div className="heading">
+                  SPOT CHANGE <i className="ri-information-line info"></i>
+                </div>
+                <div className="spot-input">
+                  <div className="action-button">
+                    <div className="action active">
+                      <i className="ri-subtract-fill minus"></i>
+                    </div>
+                    <div className="action">
+                      <i className="ri-add-fill plus"></i>
+                    </div>
+                  </div>
+                  <div className="input-group">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder=""
+                      aria-label=""
+                      aria-describedby="basic-addon2"
+                      value="25"
+                    />
+                    <span className="input-group-text" id="basic-addon2">
+                      %
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="collateral-range">
+                <div className="split-heading">
+                  <div className="safe"></div>
+                  <div className="collateral"></div>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             className="tab-pane fade"
