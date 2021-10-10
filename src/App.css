@@ -29,6 +29,7 @@
   font-size: 24px;
   text-align: left;
   margin-bottom: 16px;
+  text-transform: uppercase;
 }
 
 .order-card .split-heading {
@@ -356,6 +357,67 @@
 
 .metrics .collateral-range {
   margin-bottom: 16px;
+}
+
+.metrics .liquidation {
+  margin-bottom: 16px;
+}
+
+.liquidation .form-control {
+  border: none;
+}
+
+.metrics .step-details {
+  margin-bottom: 16px;
+}
+
+.step-details .step-heading {
+  font-weight: normal;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: #292535;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.step-details .list-item {
+  font-weight: 300;
+  font-size: 12px;
+  color: #77757e;
+  display: grid;
+  justify-content: flex-start;
+  grid-template-columns: auto 140px auto;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.step-details .active {
+  color: #292535 !important;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.step-details .active .text {
+  text-decoration-line: underline;
+}
+
+.step-details .active i {
+  text-decoration-line: none;
+}
+
+.step-details .list-item i {
+  font-size: 18px !important;
+}
+
+.step-details .list-item .right {
+  margin-right: 10px;
+}
+
+.metrics .action-summary {
+  background: rgb(220 218 233 / 20%);
+  border-radius: 4px;
+  padding: 16px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

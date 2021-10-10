@@ -142,6 +142,96 @@ const OrderCard = () => {
                   <div className="collateral"></div>
                 </div>
               </div>
+              <div className="liquidation">
+                <div className="heading">
+                  Liquidation price <i className="ri-information-line info"></i>
+                </div>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder=""
+                  aria-label=""
+                  aria-describedby="basic-addon2"
+                  value="~$146.79"
+                  disabled
+                />
+              </div>
+              <div className="liquidation">
+                <div className="heading">
+                  COLLATERAL <i className="ri-information-line info"></i>
+                </div>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder=""
+                  aria-label=""
+                  aria-describedby="basic-addon2"
+                  value="$100.00"
+                  disabled
+                />
+              </div>
+              <div className="step-details">
+                <div className="step-heading">TX ACTION</div>
+                <div className="step-list">
+                  <div className="list-item active">
+                    <i className="ri-toggle-line right"></i>
+                    <span className="text">1. Enable WETH Wrapper</span>
+                    <i className="ri-information-line info"></i>
+                  </div>
+                  <div className="list-item">
+                    <i className="ri-toggle-line right"></i>
+                    <span className="text">
+                      2. Approve collateral to Opyn Contracts
+                    </span>
+                    <i className="ri-information-line info"></i>
+                  </div>
+                  <div className="list-item">
+                    <i className="ri-toggle-line right"></i>
+                    <span className="text">
+                      3. Permit oToken to wrapper contracts
+                    </span>
+                    <i className="ri-information-line info"></i>
+                  </div>
+                  <div className="list-item">
+                    <i className="ri-checkbox-circle-line right"></i>
+                    <span className="text">
+                      4. Permit, deposit, mint & trade
+                    </span>
+                    <i className="ri-information-line info"></i>
+                  </div>
+                </div>
+              </div>
+              <div className="action-summary">
+                <div className="action-heading">TX ACTION</div>
+                <div className="action-list">
+                  <div className="list-item">
+                    <i className="ri-toggle-line right"></i>
+                    <span className="text">1. Enable WETH Wrapper</span>
+                    <i className="ri-information-line info"></i>
+                  </div>
+                  <div className="list-item">
+                    <i className="ri-toggle-line right"></i>
+                    <span className="text">
+                      2. Approve collateral to Opyn Contracts
+                    </span>
+                    <i className="ri-information-line info"></i>
+                  </div>
+                  <div className="list-item">
+                    <i className="ri-toggle-line right"></i>
+                    <span className="text">
+                      3. Permit oToken to wrapper contracts
+                    </span>
+                    <i className="ri-information-line info"></i>
+                  </div>
+                  <div className="list-item">
+                    <i className="ri-checkbox-circle-line right"></i>
+                    <span className="text">
+                      4. Permit, deposit, mint & trade
+                    </span>
+                    <i className="ri-information-line info"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div
