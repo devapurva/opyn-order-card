@@ -26,14 +26,14 @@ interface ITXSUMMARYLIST {
   id: number;
   text: string;
   tooltip: string;
-  value: number;
+  value: number | string;
   currency: string | null;
 }
 
 interface ITXACTION {
   id: number;
   icon: number;
-  text: string;
+  text: string | null;
   tooltip: string;
   active: number;
   buttonText: string;
