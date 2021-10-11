@@ -12,7 +12,7 @@ const OrderCard = () => {
     setSpotClass,
     currentStep,
     incrementSteps,
-  } = useConnectMetamask();
+  } = useConnectMetamask(); /// states, functions, apis calls - hook
 
   return (
     <div className="order-card">
