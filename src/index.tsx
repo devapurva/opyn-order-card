@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import "remixicon/fonts/remixicon.css";
+import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 

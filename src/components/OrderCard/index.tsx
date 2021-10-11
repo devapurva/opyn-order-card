@@ -1,7 +1,12 @@
+import { ToastContainer } from "react-toastify";
+import useConnectMetamask from "../../hooks/connectMetamask";
+
 const OrderCard = () => {
+  const { accountBalance, loading, ethEnabled } = useConnectMetamask();
+
   return (
     <div className="order-card">
-      <div className="heading">
+      <div className="heading title">
         Order Card <i className="ri-information-line info"></i>
       </div>
       <div className="action-card">
@@ -271,6 +276,26 @@ const OrderCard = () => {
           </div>
         </div>
       </div>
+      <div className="footer">
+        <button type="button" className="btn btn-success" onClick={ethEnabled}>
+          {loading && (
+            <div className="spinner-border text-light" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          )}{" "}
+          connect to metamask
+        </button>
+      </div>
+      <ToastContainer
+        position="top-right"
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };

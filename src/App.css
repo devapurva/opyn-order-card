@@ -9,6 +9,12 @@
   font-size: calc(10px + 2vmin);
 }
 
+.Toastify__toast {
+  font-family: Avenir;
+  font-style: normal;
+  font-size: 16px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -16,7 +22,7 @@
 
 .order-card {
   background: white;
-  padding: 16px;
+  padding-top: 16px;
   max-width: 250px;
   width: 250px;
   font-family: Avenir;
@@ -30,6 +36,10 @@
   text-align: left;
   margin-bottom: 16px;
   text-transform: uppercase;
+}
+
+.order-card .title {
+  margin: 0px 16px 16px 16px;
 }
 
 .order-card .split-heading {
@@ -46,7 +56,7 @@
   box-shadow: 0px 4px 10px rgba(222, 222, 222, 0.5);
   border-radius: 4px;
   padding: 16px;
-  margin-bottom: 16px;
+  margin: 0px 16px 16px 16px;
 }
 
 .action-card .button-group {
@@ -147,6 +157,7 @@
 .order-card .market-limit-card {
   box-shadow: 0px 4px 10px rgba(222, 222, 222, 0.5);
   border-radius: 4px;
+  margin: 0px 16px 16px 16px;
 }
 
 .market-limit-card .nav-item button {
@@ -519,6 +530,40 @@
   font-weight: normal;
   font-size: 12px;
   color: #77757e;
+}
+
+.order-card .footer {
+  background: #ffffff;
+  box-shadow: 0px -4px 10px rgba(222, 222, 222, 0.5);
+  padding: 12px 16px;
+}
+
+.order-card .footer .btn {
+  width: 100%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff;
+  padding: 12px 6px;
+}
+
+.order-card .footer .btn-danger {
+  background-color: #cd6116;
+  border-color: #cd6116;
+}
+
+.order-card .footer .btn-success {
+  background-color: #49d273;
+  border-color: #49d273;
+}
+
+.order-card .footer .btn .spinner-border {
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+  border: 1px solid currentColor;
+  border-right-color: transparent;
 }
 
 @media (prefers-reduced-motion: no-preference) {
