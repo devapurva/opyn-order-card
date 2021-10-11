@@ -1,4 +1,5 @@
 import "./App.css";
+import "./style/main.scss";
 import { OrderCard } from "./components";
 
 function App() {
