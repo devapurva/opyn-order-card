@@ -202,34 +202,61 @@ const OrderCard = () => {
                 </div>
               </div>
               <div className="action-summary">
-                <div className="action-heading">TX ACTION</div>
+                <div className="action-heading">TX Summary</div>
+                <div className="sub-heading">
+                  Premium/oToken
+                  <i className="ri-information-line info"></i>
+                </div>
+                <div className="currency">USDC</div>
                 <div className="action-list">
                   <div className="list-item">
-                    <i className="ri-toggle-line right"></i>
-                    <span className="text">1. Enable WETH Wrapper</span>
-                    <i className="ri-information-line info"></i>
+                    <div className="name">
+                      <span className="text">Est. Total Cost</span>
+                      <i className="ri-information-line info"></i>
+                    </div>
+                    <div className="cost">
+                      <span className="number">103.937</span>
+                      <span className="text">USDC</span>
+                    </div>
                   </div>
                   <div className="list-item">
-                    <i className="ri-toggle-line right"></i>
-                    <span className="text">
-                      2. Approve collateral to Opyn Contracts
-                    </span>
-                    <i className="ri-information-line info"></i>
+                    <div className="name">
+                      <span className="text">Market Impact</span>
+                      <i className="ri-information-line info"></i>
+                    </div>
+                    <div className="cost">
+                      <span className="number">0.02%</span>
+                    </div>
                   </div>
                   <div className="list-item">
-                    <i className="ri-toggle-line right"></i>
-                    <span className="text">
-                      3. Permit oToken to wrapper contracts
-                    </span>
-                    <i className="ri-information-line info"></i>
+                    <div className="name">
+                      <span className="text">0x Protocol Fee</span>
+                      <i className="ri-information-line info"></i>
+                    </div>
+                    <div className="cost">
+                      <span className="number">0.0983</span>
+                      <span className="text">ETH</span>
+                    </div>
                   </div>
                   <div className="list-item">
-                    <i className="ri-checkbox-circle-line right"></i>
-                    <span className="text">
-                      4. Permit, deposit, mint & trade
-                    </span>
-                    <i className="ri-information-line info"></i>
+                    <div className="name">
+                      <span className="text">Collateral</span>
+                      <i className="ri-information-line info"></i>
+                    </div>
+                    <div className="cost">
+                      <span className="number">0.00234</span>
+                      <span className="text">USDC</span>
+                    </div>
                   </div>
+                </div>
+              </div>
+              <div className="action-footer">
+                <div className="heading">
+                  Total to Receive<i className="ri-information-line info"></i>
+                </div>
+                <div className="cost">
+                  <span className="number">113.532</span>
+                  <span className="crypto">+0.0983 ETH</span>
                 </div>
               </div>
             </div>
