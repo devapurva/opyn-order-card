@@ -2,8 +2,17 @@ import { ToastContainer } from "react-toastify";
 import useConnectMetamask from "../../hooks/connectMetamask";
 
 const OrderCard = () => {
-  const { details, loading, ethEnabled, setMax, setDetails, setCurrent } =
-    useConnectMetamask();
+  const {
+    details,
+    loading,
+    ethEnabled,
+    setMax,
+    setDetails,
+    spotClass,
+    setSpotClass,
+    currentStep,
+    incrementSteps,
+  } = useConnectMetamask();
 
   return (
     <div className="order-card">
@@ -90,7 +99,18 @@ const OrderCard = () => {
                   <div className="token-input">
                     <input
                       type="number"
-                      onChange={(e) => setCurrent(e.target.value)}
+                      min="0"
+                      max={details?.position?.total}
+                      step="0.1"
+                      onChange={(e) =>
+                        setDetails({
+                          ...details,
+                          position: {
+                            ...details.position,
+                            current: parseFloat(e.target.value),
+                          },
+                        })
+                      }
                       className="form-control"
                       value={details?.position?.current}
                     ></input>
@@ -110,12 +130,19 @@ const OrderCard = () => {
                 </div>
                 <div className="input-group mb-3">
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     placeholder=""
-                    aria-label=""
+                    aria-label="collaterization-ratio"
                     aria-describedby="basic-addon2"
-                    value="25"
+                    onChange={(e) =>
+                      setDetails({
+                        ...details,
+                        spotPercent: parseInt(e.target.value),
+                        collateralPercent: parseInt(e.target.value),
+                      })
+                    }
+                    value={details?.collateralPercent}
                   />
                   <span className="input-group-text" id="basic-addon2">
                     %
@@ -128,10 +155,34 @@ const OrderCard = () => {
                 </div>
                 <div className="spot-input">
                   <div className="action-button">
-                    <div className="action active">
+                    <div
+                      className={
+                        spotClass === "minus" ? "action active" : "action"
+                      }
+                      onClick={() => {
+                        setSpotClass("minus");
+                        setDetails({
+                          ...details,
+                          spotPercent: details.spotPercent - 1,
+                          collateralPercent: details.spotPercent - 1,
+                        });
+                      }}
+                    >
                       <i className="ri-subtract-fill minus"></i>
                     </div>
-                    <div className="action">
+                    <div
+                      className={
+                        spotClass === "plus" ? "action active" : "action"
+                      }
+                      onClick={() => {
+                        setSpotClass("plus");
+                        setDetails({
+                          ...details,
+                          spotPercent: details.spotPercent + 1,
+                          collateralPercent: details.spotPercent + 1,
+                        });
+                      }}
+                    >
                       <i className="ri-add-fill plus"></i>
                     </div>
                   </div>
@@ -139,10 +190,16 @@ const OrderCard = () => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder=""
-                      aria-label=""
+                      aria-label="spot-change"
                       aria-describedby="basic-addon2"
-                      value="25"
+                      onChange={(e) =>
+                        setDetails({
+                          ...details,
+                          spotPercent: parseInt(e.target.value),
+                          collateralPercent: parseInt(e.target.value),
+                        })
+                      }
+                      value={details?.spotPercent}
                     />
                     <span className="input-group-text" id="basic-addon2">
                       %
@@ -163,10 +220,9 @@ const OrderCard = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder=""
-                  aria-label=""
+                  aria-label="liquidation-price"
                   aria-describedby="basic-addon2"
-                  value="~$146.79"
+                  value={`~$${details?.liquidationPrice}`}
                   disabled
                 />
               </div>
@@ -180,88 +236,60 @@ const OrderCard = () => {
                   placeholder=""
                   aria-label=""
                   aria-describedby="basic-addon2"
-                  value="$100.00"
+                  value={`~$${details?.collateral}`}
                   disabled
                 />
               </div>
               <div className="step-details">
                 <div className="step-heading">TX ACTION</div>
                 <div className="step-list">
-                  <div className="list-item active">
-                    <i className="ri-toggle-line right"></i>
-                    <span className="text">1. Enable WETH Wrapper</span>
-                    <i className="ri-information-line info"></i>
-                  </div>
-                  <div className="list-item">
-                    <i className="ri-toggle-line right"></i>
-                    <span className="text">
-                      2. Approve collateral to Opyn Contracts
-                    </span>
-                    <i className="ri-information-line info"></i>
-                  </div>
-                  <div className="list-item">
-                    <i className="ri-toggle-line right"></i>
-                    <span className="text">
-                      3. Permit oToken to wrapper contracts
-                    </span>
-                    <i className="ri-information-line info"></i>
-                  </div>
-                  <div className="list-item">
-                    <i className="ri-checkbox-circle-line right"></i>
-                    <span className="text">
-                      4. Permit, deposit, mint & trade
-                    </span>
-                    <i className="ri-information-line info"></i>
-                  </div>
+                  {/* eslint-disable-next-line array-callback-return */}
+                  {details?.txAction?.map((item, index) => {
+                    if (item?.text) {
+                      return (
+                        <div
+                          key={`txaction${item.id}`}
+                          className={
+                            item?.active === 1
+                              ? "list-item active"
+                              : "list-item"
+                          }
+                        >
+                          {item?.icon === 1 ? (
+                            <i className="ri-toggle-line right"></i>
+                          ) : (
+                            <i className="ri-checkbox-circle-line right"></i>
+                          )}
+                          <span className="text">{item?.text}</span>
+                          <i className="ri-information-line info"></i>
+                        </div>
+                      );
+                    }
+                  })}
                 </div>
               </div>
               <div className="action-summary">
                 <div className="action-heading">TX Summary</div>
                 <div className="sub-heading">
-                  Premium/oToken
+                  {details?.txSummary?.title}
                   <i className="ri-information-line info"></i>
                 </div>
-                <div className="currency">USDC</div>
+                <div className="currency">{details?.txSummary?.value}</div>
                 <div className="action-list">
-                  <div className="list-item">
-                    <div className="name">
-                      <span className="text">Est. Total Cost</span>
-                      <i className="ri-information-line info"></i>
+                  {details?.txSummary?.list?.map((item, index) => (
+                    <div key={`txsummary${item.id}`} className="list-item">
+                      <div className="name">
+                        <span className="text">{item?.text}</span>
+                        <i className="ri-information-line info"></i>
+                      </div>
+                      <div className="cost">
+                        <span className="number">{item?.value}</span>
+                        {item?.currency && (
+                          <span className="text">{item?.currency}</span>
+                        )}
+                      </div>
                     </div>
-                    <div className="cost">
-                      <span className="number">103.937</span>
-                      <span className="text">USDC</span>
-                    </div>
-                  </div>
-                  <div className="list-item">
-                    <div className="name">
-                      <span className="text">Market Impact</span>
-                      <i className="ri-information-line info"></i>
-                    </div>
-                    <div className="cost">
-                      <span className="number">0.02%</span>
-                    </div>
-                  </div>
-                  <div className="list-item">
-                    <div className="name">
-                      <span className="text">0x Protocol Fee</span>
-                      <i className="ri-information-line info"></i>
-                    </div>
-                    <div className="cost">
-                      <span className="number">0.0983</span>
-                      <span className="text">ETH</span>
-                    </div>
-                  </div>
-                  <div className="list-item">
-                    <div className="name">
-                      <span className="text">Collateral</span>
-                      <i className="ri-information-line info"></i>
-                    </div>
-                    <div className="cost">
-                      <span className="number">0.00234</span>
-                      <span className="text">USDC</span>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
               <div className="action-footer">
@@ -269,8 +297,11 @@ const OrderCard = () => {
                   Total to Receive<i className="ri-information-line info"></i>
                 </div>
                 <div className="cost">
-                  <span className="number">113.532</span>
-                  <span className="crypto">+0.0983 ETH</span>
+                  <span className="number">{details?.totalReceive}</span>
+                  <span className="crypto">
+                    +{details?.totalReceiveAddOn}{" "}
+                    {details?.totalReceiveCurrency}
+                  </span>
                 </div>
               </div>
             </div>
@@ -286,13 +317,24 @@ const OrderCard = () => {
         </div>
       </div>
       <div className="footer">
-        <button type="button" className="btn btn-success" onClick={ethEnabled}>
+        <button
+          type="button"
+          className={`btn btn-${currentStep?.buttonType}`}
+          onClick={() => {
+            if (currentStep?.id === 1) {
+              ethEnabled();
+            } else {
+              incrementSteps();
+            }
+          }}
+          disabled={loading}
+        >
           {loading && (
             <div className="spinner-border text-light" role="status">
               <span className="visually-hidden">Loading...</span>
             </div>
           )}{" "}
-          connect to metamask
+          {currentStep?.buttonText}
         </button>
       </div>
       <ToastContainer
