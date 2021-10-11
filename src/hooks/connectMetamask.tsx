@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Web3 from "web3";
 import { toast } from "react-toastify";
+import { cardDetails } from "utils/common";
 
 declare let window: any;
 
@@ -9,12 +10,24 @@ const useConnectMetamask = () => {
   const [accounts, setAccounts] = useState<string[]>([]);
   const [accountBalance, setAccountBalance] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [details, setDetails] = useState<ICardDetails>(cardDetails);
 
   useEffect(() => {
-    if (accounts?.length > 0) {
+    if (accounts?.length > 0 && !accountBalance) {
       getBalance();
     }
-  }, [accounts]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [accounts, accountBalance]);
+
+  const setMax = () => {
+    setDetails({
+      ...details,
+      position: {
+        ...details.position,
+        current: details.position.total,
+      },
+    });
+  };
 
   const ethEnabled = async () => {
     if (window.ethereum) {
@@ -53,7 +66,15 @@ const useConnectMetamask = () => {
         web3.eth
           .getBalance(`${accounts?.[0]}`)
           .then((response: string | null) => {
-            setAccountBalance(response);
+            const bal = web3.utils.fromWei(`${response}`, "ether");
+            setAccountBalance(bal);
+            setDetails({
+              ...details,
+              position: {
+                ...details.position,
+                total: parseInt(bal),
+              },
+            });
           })
           .catch(() =>
             toast.error("Failed to fetch balance.", {
@@ -72,13 +93,16 @@ const useConnectMetamask = () => {
 
   return {
     accounts,
-    setAccounts,
     accountBalance,
-    setAccountBalance,
     loading,
+    details,
+    setAccounts,
+    setAccountBalance,
     setLoading,
+    setDetails,
     ethEnabled,
     getBalance,
+    setMax,
   };
 };
 
