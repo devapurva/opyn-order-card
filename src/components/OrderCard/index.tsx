@@ -2,7 +2,7 @@ import { ToastContainer } from "react-toastify";
 import useConnectMetamask from "../../hooks/connectMetamask";
 
 const OrderCard = () => {
-  const { details, loading, ethEnabled, setMax, setDetails } =
+  const { details, loading, ethEnabled, setMax, setDetails, setCurrent } =
     useConnectMetamask();
 
   return (
@@ -85,12 +85,20 @@ const OrderCard = () => {
                 <div className="otoken">
                   <div className="balance">
                     <span className="text">oToken Balance:</span>
-                    <span className="number">{accountBalance}</span>
+                    <span className="number">{details?.position?.total}</span>
                   </div>
                   <div className="token-input">
-                    <input className="form-control" value="100.00"></input>
+                    <input
+                      type="number"
+                      onChange={(e) => setCurrent(e.target.value)}
+                      className="form-control"
+                      value={details?.position?.current}
+                    ></input>
                     <span className="max-button">
-                      <span className="button">max</span> <span>oTokens</span>
+                      <span className="button" onClick={setMax}>
+                        max
+                      </span>{" "}
+                      <span>oTokens</span>
                     </span>
                   </div>
                 </div>

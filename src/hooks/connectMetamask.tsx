@@ -72,7 +72,7 @@ const useConnectMetamask = () => {
               ...details,
               position: {
                 ...details.position,
-                total: parseInt(bal),
+                total: parseFloat(bal),
               },
             });
           })
@@ -91,6 +91,21 @@ const useConnectMetamask = () => {
     }
   };
 
+  const setCurrent = (value = "0") => {
+    // eslint-disable-next-line use-isnan
+    if (parseFloat(value) !== NaN) {
+      setDetails({
+        ...details,
+        position: {
+          ...details.position,
+          current: parseFloat(value),
+        },
+      });
+    } else {
+      toast.error("Position Size must be a number");
+    }
+  };
+
   return {
     accounts,
     accountBalance,
@@ -103,6 +118,7 @@ const useConnectMetamask = () => {
     ethEnabled,
     getBalance,
     setMax,
+    setCurrent,
   };
 };
 
