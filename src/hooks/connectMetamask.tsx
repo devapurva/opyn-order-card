@@ -35,6 +35,7 @@ const useConnectMetamask = () => {
   };
 
   const incrementSteps = () => {
+    // takes to the next step in card
     if (currentStep.id === 4) {
       if (details?.position?.current === 0) {
         return toast.error("oTokens cannot be Zero", { autoClose: 5000 });
@@ -57,6 +58,7 @@ const useConnectMetamask = () => {
     const activeStep = (item: ITXACTION) => item.active === 1;
     const activeIndex = txActionTemp.findIndex(activeStep);
     if (activeIndex + 1 < txActionTemp.length) {
+      // if index is less than total no. of elements
       txActionTemp[activeIndex].active = 0;
       txActionTemp[activeIndex + 1].active = 1;
       setCurrentStep(txActionTemp[activeIndex + 1]);
@@ -81,6 +83,7 @@ const useConnectMetamask = () => {
   };
 
   const ethEnabled = async () => {
+    // web3 api calls to connect metamask
     if (window.ethereum) {
       setLoading(true);
       web3 = new Web3(window.ethereum);

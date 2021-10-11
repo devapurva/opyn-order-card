@@ -16,9 +16,12 @@ const OrderCard = () => {
 
   return (
     <div className="order-card">
+      {/* CARD HEADING */}
       <div className="heading title">
         Order Card <i className="ri-information-line info"></i>
       </div>
+
+      {/* BUY/SELL CARD, ALONG WITH CURRENCY, DATE, SPREADSHEET */}
       <div className="action-card">
         <div className="button-group">
           <button className="buy">BUY</button>
@@ -48,7 +51,10 @@ const OrderCard = () => {
           </div>
         </div>
       </div>
+
+      {/* MARKET/LIMIT TABS MAIN CARD */}
       <div className="market-limit-card">
+        {/* TABS LIST */}
         <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
           <li className="nav-item market" role="presentation">
             <button
@@ -80,6 +86,7 @@ const OrderCard = () => {
           </li>
         </ul>
         <div className="tab-content" id="myTabContent">
+          {/* MARKET TAB CONTENT */}
           <div
             className="tab-pane fade show active"
             id="market"
@@ -87,6 +94,7 @@ const OrderCard = () => {
             aria-labelledby="market-tab"
           >
             <div className="metrics">
+              {/* POSITION SIZE */}
               <div className="position">
                 <div className="heading">
                   POSITION SIZE <i className="ri-information-line info"></i>
@@ -123,6 +131,7 @@ const OrderCard = () => {
                   </div>
                 </div>
               </div>
+              {/* COLLATERALIZATION RATIO */}
               <div className="collateral">
                 <div className="heading">
                   COLLATERALIZATION RATIO{" "}
@@ -149,6 +158,7 @@ const OrderCard = () => {
                   </span>
                 </div>
               </div>
+              {/* SPOT CHANGE */}
               <div className="spot">
                 <div className="heading">
                   SPOT CHANGE <i className="ri-information-line info"></i>
@@ -207,12 +217,14 @@ const OrderCard = () => {
                   </div>
                 </div>
               </div>
+              {/* COLLATERAL RANGE SLIDER */}
               <div className="collateral-range">
                 <div className="split-heading">
                   <div className="safe"></div>
                   <div className="collateral"></div>
                 </div>
               </div>
+              {/* LIQUIDATION PRICE*/}
               <div className="liquidation">
                 <div className="heading">
                   Liquidation price <i className="ri-information-line info"></i>
@@ -226,6 +238,7 @@ const OrderCard = () => {
                   disabled
                 />
               </div>
+              {/* COLLATERAL PERCENT*/}
               <div className="liquidation">
                 <div className="heading">
                   COLLATERAL <i className="ri-information-line info"></i>
@@ -240,6 +253,7 @@ const OrderCard = () => {
                   disabled
                 />
               </div>
+              {/* TX ACTION LIST*/}
               <div className="step-details">
                 <div className="step-heading">TX ACTION</div>
                 <div className="step-list">
@@ -268,6 +282,7 @@ const OrderCard = () => {
                   })}
                 </div>
               </div>
+              {/* TX SUMMARY LIST*/}
               <div className="action-summary">
                 <div className="action-heading">TX Summary</div>
                 <div className="sub-heading">
@@ -291,7 +306,8 @@ const OrderCard = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div>{" "}
+              {/* TOTAL RECEIVED*/}
               <div className="action-footer">
                 <div className="heading">
                   Total to Receive<i className="ri-information-line info"></i>
@@ -306,6 +322,7 @@ const OrderCard = () => {
               </div>
             </div>
           </div>
+          {/* LIMIT TAB CONTENT*/}
           <div
             className="tab-pane fade"
             id="profile"
@@ -316,6 +333,7 @@ const OrderCard = () => {
           </div>
         </div>
       </div>
+      {/* FOOTER BUTTONS*/}
       <div className="footer">
         <button
           type="button"
