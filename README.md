@@ -6,7 +6,7 @@ NOTE: Order card will connect to MetaMask wallet, please use test account.
 
 1. [Component](https://github.com/devapurva/opyn-frontend-assignment/blob/main/src/components/OrderCard/index.tsx)
 2. [Hook](https://github.com/devapurva/opyn-frontend-assignment/blob/main/src/hooks/connectMetamask.tsx)
-3. [CSS](https://github.com/devapurva/opyn-frontend-assignment/blob/main/src/App.css)
+3. [CSS](https://github.com/devapurva/opyn-frontend-assignment/blob/main/src/style/_order-card.scss)
 
 ## Available Scripts
 
