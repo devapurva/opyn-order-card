@@ -1,12 +1,20 @@
-# OPYN FRONTEND ASSINGMENT
+# OPYN ORDER CARD UI
 
-[DEMO](https://opyn-frontend-assignment.vercel.app/) | [FRONTEND UI TASK](https://opynopyn.notion.site/Frontend-UI-Task-0289454c580144a988fee2edb0c55c02) | [FIGMA DESIGNS](https://www.figma.com/file/CrTP57Fct6z3mp7pFu6mlO/Opyn-Frontend-UI-Task?node-id=0%3A1)
+[DEMO](https://opyn-frontend-assignment.vercel.app/) | [FIGMA DESIGNS](https://www.figma.com/file/CrTP57Fct6z3mp7pFu6mlO/Opyn-Frontend-UI-Task?node-id=0%3A1)
 
 NOTE: Order card will connect to MetaMask wallet, please use test account.
 
 1. [Component](https://github.com/devapurva/opyn-frontend-assignment/blob/main/src/components/OrderCard/index.tsx)
 2. [Hook](https://github.com/devapurva/opyn-frontend-assignment/blob/main/src/hooks/connectMetamask.tsx)
 3. [CSS](https://github.com/devapurva/opyn-frontend-assignment/blob/main/src/style/_order-card.scss)
+
+**Goal:** Implement an order card to allow users to trade oTokens (options) 
+
+- [Implement this flow](https://www.figma.com/file/CrTP57Fct6z3mp7pFu6mlO/Opyn-Frontend-UI-Task?node-id=1%3A7) using React, Typescript, and CSS
+    - Implement the flow for a market sell
+- The first button in the flow should actually connect to Metamask
+- Every subsequent button should have loading + switching animations for button transitions, but does not need to connect to any logic
+- CSS should be implemented using CSS best practices and without using existing libraries (eg. Material, Ant etc.)
 
 ## Available Scripts
 
